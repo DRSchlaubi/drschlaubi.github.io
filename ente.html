@@ -1,0 +1,68 @@
+
+<html>
+<head>
+        <style>
+        body {
+            background-color: red;
+            height: 100%;
+            width: 100%;
+            transition: background-color 0.5s ease-in-out;
+        }
+	h1 {
+		font-family: Helvetica;
+		font-size: 90;
+		color: white;
+		transition: color 0.5s ease-in-out;
+		text-align: center;
+		margin-top: 10%;
+	}
+	::selection {
+		background-color: transparent;
+	}
+	#image {
+		z-index: -1;
+		position: absolute;
+		margin-top: -300px;
+		margin-left: -280px;
+	}
+        </style>
+</head>
+<body>
+	<h1>Moritz ist Schuld<br /ente.schlaubi.net</h1>
+	<center><img src="ente.png" id="image"</img></center>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+        jQuery(function ($) {
+	function changeHeading(selector, colors, time) {
+                var curCol = 0,
+                    timer = setInterval(function () {
+                        if (curCol === colors.length) curCol = 0;
+                        $(selector).css("color", colors[curCol]);
+                        curCol++;
+                    }, time);
+            }
+            function changeColor(selector, colors, time) {
+                var curCol = 0,
+                    timer = setInterval(function () {
+                        if (curCol === colors.length) curCol = 0;
+                        $(selector).css("background-color", colors[curCol]);
+                        curCol++;
+                    }, time);
+            }
+            $(window).load(function () {
+		changeHeading("h1", ["black", "white"], 300);
+                changeColor("body", ["green", "yellow", "blue", "red", "orange", "purple", "rosa", "red", "springgreen", "mediumseagreen", "yellow", "lightskyblue"], 350);
+            });
+        });
+	var angle = 0;
+	setInterval(function() {
+	    console.log(angle);
+	    $("#image")
+	        .css('-webkit-transform', 'rotate('+angle+'deg)')
+	        .css('-moz-transform', 'rotate('+angle+'deg)')
+	        .css('-ms-transform', 'rotate('+angle+'deg)');
+	    angle++;
+	}, -1);
+        </script>
+</body>
+</html>
